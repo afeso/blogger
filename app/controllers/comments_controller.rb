@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
     @comment.article_id = params[:article_id]
     @comment.save
 
+    flash[:notice] = "#{@comment.author_name} posted a comment."
+
     redirect_to article_path(@comment.article)
   end
 end
