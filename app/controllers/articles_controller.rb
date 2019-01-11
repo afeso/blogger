@@ -30,8 +30,10 @@ class ArticlesController < ApplicationController
     #   redirect_to article_path(@article)
 
     # A better Code for creating
-    @article = Article.create(article_params)
+    # @article = Article.new(article_params)
     # @article.save
+
+    @article = Article.create(article_params) # The Crate method doesnt require calling the .save method
 
     flash.notice = "Article '#{@article.title}' Created!"
 
