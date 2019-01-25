@@ -14,6 +14,17 @@
       <p class="flash"><%= flash[:notice] %></p>
     <% end %>
     
+  <div id='navigation'>
+    <h2>Links</h2>
+    <ul>
+      <li><%= link_to 'Home', articles_path %></li>
+      <li><%= link_to 'Tags', tags_path %></li>
+      <% if logged_in? %>
+        <li><%= link_to 'Users', authors_path %></li>
+      <% end %>
+    </ul>
+  </div>
+
     <div id='container'>
       <div id='content'>
     
@@ -22,9 +33,10 @@
         <h6>
           <% if logged_in? %>
             <%= "Logged in as #{current_user.email}" %>
-            <%= link_to "(logout)", logout_path %>
+            <%= link_to "(logout)", logout_path %> 
           <% else %>
-            <%= link_to "(login)", login_path %>
+            <%= link_to "(login)", login_path %> | 
+            <%= link_to "(Sign Up)", new_author_path %>
           <% end %>
         </h6>
       </div>
